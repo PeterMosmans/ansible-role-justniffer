@@ -7,17 +7,13 @@ compiler:
   - gcc
 
 sudo: true
-
-before_script:
-  export PYTHONPATH=$PYTHONPATH:$(pwd)
-  
+ 
 addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
 env:
   - SITE=test.yml
-  - PYTHON_INCLUDE=/usr/include/python2.7
 
 before_install:
   - sudo apt-get update -qq 1>/dev/null

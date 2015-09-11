@@ -1,5 +1,7 @@
 ---
 # tasks file for justniffer
+- name: Use correct library path
+  set_fact: library_parameter="{{ '--with-boost-libdir=/usr/lib/x86_64-linux-gnu' if (((ansible_distribution == 'Debian') and (ansible_distribution_version >= '8')) or ((ansible_distribution == 'Ubuntu') and (ansible_distribution_version|int >= '14.04'))) else '' }}"
 - name: Install necessary packages
   apt:
     name={{ item }}
@@ -43,4 +45,4 @@
       dest: /var/git/justniffer
 
 - name: Configure and build justniffer
-  shell: cd /var/git/justniffer && autoreconf --force --install 1>/dev/null && ./configure --with-boost-libdir=/usr/lib/x86_64-linux-gnu --prefix=/usr/local 1>/dev/null && make 1>/dev/null && make install-strip 1>/dev/null
+  shell: cd /var/git/justniffer && make clean ; autoreconf --force --install 1>/dev/null && CPPFLAGS=-I/usr/include/python2.7 ./configure --with-boost-libdir=/usr/lib/x86_64-linux-gnu --prefix=/usr/local && make 1>/dev/null && make install-strip 1>/dev/null
