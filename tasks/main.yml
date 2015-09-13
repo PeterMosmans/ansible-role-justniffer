@@ -43,7 +43,7 @@
       dest: /var/git/justniffer
 
 - name: Configure justniffer
-  shell: cd /var/git/justniffer && autoreconf --force --install 1>/dev/null && ./configure --with-boost-libdir=/usr/lib/x86_64-linux-gnu --prefix=/usr/local
+  shell: cd /var/git/justniffer && autoreconf --force --install 1>/dev/null && ./configure --with-boost-libdir=/usr/lib/x86_64-linux-gnu --prefix=/usr/local 1>/dev/null
 
 - name: Build and install justniffer
-  shell: cd /var/git/justniffer && make && make install-strip 1>/dev/null
+  shell: cd /var/git/justniffer && make 1>/dev/null && make install-strip 1>/dev/null
