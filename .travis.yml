@@ -16,6 +16,7 @@ env:
   - SITE=test.yml
 
 before_install:
+  - sudo apt-get remove python3
   - sudo apt-get update -qq 1>/dev/null
   - sudo apt-get install -qq libstdc++-4.9-dev
   - sudo apt-get install -qq gcc-4.9 g++-4.9
