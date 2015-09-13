@@ -45,4 +45,10 @@
       dest: /var/git/justniffer
 
 - name: Configure and build justniffer
-  shell: cd /var/git/justniffer && make clean ; autoreconf --force --install 1>/dev/null && CPPFLAGS=-I/usr/include/python2.7 ./configure --with-boost-libdir=/usr/lib/x86_64-linux-gnu --prefix=/usr/local && make 1>/dev/null && make install-strip 1>/dev/null
+  shell: cd /var/git/justniffer && autoreconf --force --install 1>/dev/null && CPPFLAGS=-I/usr/include/python2.7 ./configure --with-boost-libdir=/usr/lib/x86_64-linux-gnu --prefix=/usr/local
+
+- name: Show config file
+  shell: cat /var/git/justniffer/config.log
+  register: result
+
+- debug: var=result
