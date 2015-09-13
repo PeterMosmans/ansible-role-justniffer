@@ -19,8 +19,8 @@ before_install:
   - sudo apt-get remove python3
   - sudo apt-get remove python3.2
   - sudo apt-get remove python3.2-dev
-  - sudo apt-get remove python3-minimal
-  - sudo apt-get remove python3.2-minimal
+#  - sudo apt-get remove python3-minimal
+#  - sudo apt-get remove python3.2-minimal
   - sudo apt-get remove libpython3.2
   - sudo apt-get install libpython2.7
   - sudo apt-get update -qq 1>/dev/null
@@ -53,4 +53,4 @@ script:
 #    && (echo 'Idempotence test: pass' && exit 0)
 #    || (echo 'Idempotence test: fail' && exit 1)
   # Check the tools
-  - "justniffer --version"
+  - justniffer --version | grep -q "justsniffer " && exit 0
