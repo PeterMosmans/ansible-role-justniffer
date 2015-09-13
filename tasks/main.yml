@@ -45,7 +45,7 @@
       dest: /var/git/justniffer
 
 - name: Configure justniffer
-  shell: cd /var/git/justniffer && autoreconf --force --install 1>/dev/null && CPPFLAGS='-I/usr/include/python2.7 -lpython2.7'  ./configure --with-boost-libdir=/usr/lib/x86_64-linux-gnu --prefix=/usr/local
+  shell: cd /var/git/justniffer && autoreconf --force --install 1>/dev/null && ./configure --with-boost-libdir=/usr/lib/x86_64-linux-gnu --prefix=/usr/local
 
 - name: Configure justniffer
   shell: cd /var/git/justniffer && make && make install-strip 1>/dev/null
