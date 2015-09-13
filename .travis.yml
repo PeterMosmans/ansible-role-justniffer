@@ -53,4 +53,4 @@ script:
 #    && (echo 'Idempotence test: pass' && exit 0)
 #    || (echo 'Idempotence test: fail' && exit 1)
   # Check the tools
-  - justniffer --version | grep -q "justsniffer " && exit 0
+  - justniffer --version | grep -q "justniffer " && exit 0
